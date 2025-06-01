@@ -1,0 +1,99 @@
+\section{Classical Field Theory}
+\subsection{The Dynamics of fields}
+A field is a quantity defined at every point in spacetime. For example, a complex scalar field is a function 
+\[
+    \phi: \mathbb{R}^4\rightarrow \mathbb{C},\quad\phi(x^\mu)=\phi(\vec{x},t),
+\]
+and a real vector field is a set of functions
+\[
+    A_\mu: \mathbb{R}^4\rightarrow \mathbb{R},\quad A_\mu(x^\nu)=A_\mu(\vec{x},t), \quad\forall\;\mu=0,1,2,3.
+\]
+That is, a vector field $A_\mu(x^\nu)$ assigns a value to each spacetime point $x^\nu$ for each vector component $\mu$. The full field is then a collection of the four functions:
+\[
+    A(x^\nu) = (A_0(x^\nu),A_1(x^\nu),A_2(x^\nu), A_3(x^\nu))\in \mathbb{R}^4.
+\]
+\subsubsection{Euler Lagrange Equations}
+The dynamics of the fields are governed by the principle of stationary action. Consider a set of fields $\phi_a$. We construct the action as follows:
+\[
+    S:\{\phi_a\}\rightarrow\mathbb{R}, \quad S[\phi_a] = \int d^4x \;\Lag(\phi_a,\partial_\mu \phi_a),
+\]
+where $\Lag$ is called the Lagrangian density and is, usually, a function of just the fields and their first derivatives (higher order terms can lead to issues, as we'll see later). The Lagrangian is given by the spatial integral of this density
+\[
+    L = \int d^3x\; \Lag(\phi_a, \partial_\mu\phi_a).
+\]
+In field theory, the Lagrangian density is what appears in the action rather than the Lagrangian. This is because, in classical mechanics, our field was the position, and our only path parameters was time; in field theories, the fields depend on each point in spacetime (infinite degrees of freedom), so we have four path parameters, and we need to integrate over all of them. How else could we find a scalar action given fields that depend on all spacetime points. We assert that the physical field configuration is defined to be the one for which the action is stationary under variations of the fields.\\
+
+\noindent As such, consider a set of fields $\phi_a$ to be the configuration for which the action is stationary. Consider infinitesimal variations of the fields $\phi_a$ written as: $\phi_a'(x^\mu) = \phi_a(x^\mu) + \epsilon \eta_a(x^\mu)$ for small $\epsilon$ and field variation $\eta_a$. The variations $\eta_a$ are arbitrary except that they vanish at the boundary of the spacetime volume $\Omega$ we're considering (effectively making this a boundary value problem). To say that $\phi_a$ extremizes the action means:
+\[
+    \delta S = \frac{dS}{d\epsilon}\bigg|_{\epsilon=0} = \frac{d}{d\epsilon}\bigg|_{\epsilon=0}\int_\Omega d^4x \;\Lag(\phi_a+\epsilon\eta_a, \partial_\mu(\phi_a + \epsilon\eta_a))
+\]
+\[
+    = \int_\Omega d^4 x\;\frac{\partial}{\partial \epsilon}\bigg|_{\epsilon=0}\Lag(\phi_a+\epsilon\eta_a,\partial_\mu\phi_a + \epsilon\partial_\mu\eta_a)
+\]
+\[
+    =\int_\Omega d^4x\; \left(\frac{\partial\Lag}{\partial\phi_a}\eta_a + \frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\partial_\mu\eta_a\right)\footnotemark[2]
+\]
+\footnotetext[2]{This is a straightforward application of the chain rule, but, if you're like me, it looks a little odd compared to how you've maybe seen it before. If it helps, consider viewing $\Lag(\phi_a,\partial_\mu)\circ(\phi_a+\epsilon\eta_a, \partial_\mu\phi_a+\epsilon\partial_\mu\eta_a)$ as a composition of maps in function space. The Lagrangian density symbolically depends on any arbitrary field configuration. We're inserting a path in field space (a specific field configuration). This is analogous to evaluating a Lagrangian on a specific path in classical mechanics. The derivatives $\frac{\partial\Lag }{\partial\phi_a}$ and $\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}$ are formal derivatives of the arbitrary parameters of the Lagrangian density.}
+\[
+    =\int_\Omega d^4x\; \left(\frac{\partial\Lag}{\partial\phi_a}\eta_a -\partial_\mu\left(\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\right)\eta_a+\partial_\mu\left(\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\eta_a\right)\right)
+\]
+\[
+    =\int_\Omega d^4x\; \left(\frac{\partial\Lag}{\partial\phi_a}-\partial_\mu\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\right)\eta_a + \int_{\partial\Omega}d\Sigma_\mu\eta_a\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)},
+\]
+where, in the last step, the divergence theorem is used to convert the last term to an integral over the boundary of the spacetime volume $\Omega$. By construction, $\eta_a$ vanishes at the boundary, so the last term vanishes. Thus,
+\[
+    \delta S = \int_\Omega d^4x \left(\frac{\partial\Lag}{\partial\phi_a} - \partial_\mu\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\right)\eta_a = 0.
+\]
+Because $\eta_a$ is arbitrary (subject only to vanishing boundary conditions), the integrand itself must vanish pointwise. Thus, 
+\[
+    \frac{\partial\Lag}{\partial\phi_a} - \partial_\mu\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}=0
+\]
+must hold independently. These are the Euler-Lagrange equations for fields. Any field configuration that satisfies the variational principle must obey these equations. \\
+
+\noindent For future reference, it's helpful to introduce some cleaner notation. The functional derivative of $S$ is defined as 
+\[
+    \frac{\delta S}{\delta \phi_a} \quad \text{such that} \quad \delta S = \int_\Omega d^4x\; \frac{\delta S}{\delta \phi_a}\delta\phi_a.
+\]
+This derivative yields the unique function that determines the change in $S$ under an arbitrary infinitesimal variation of the field $\phi_a$. \\
+
+\noindent Now, we've defined a general structure for a field theory: our physical objects are a set of fields $\phi_a$. Given this set of fields, we compute the action $S$ (an integral of a function of the fields, $\Lag$, over spacetime). The dynamics of $\phi_a$ are governed by the requirement that $S$ remains stationary under small variations of $\phi_a$. We have our physical objects, and we know how they evolve. Are there any restrictions on what types of fields and evolution (inevitably governed by $\Lag$) we allow? Yes; there are two more properties of our theory that we require: locality and Lorentz invariance.
+\subsection{Locality}
+As mentioned earlier, locality -- the principle that no influence can propagate instantly -- is fundamental to modern physics and is one of the major motivations for introducing fields in the first place. The dynamics of a field at one point in spacetime should depend only on what's happening in its immediate vicinity.\\
+
+\noindent Luckily, enforcing locality in a field theory is straightforward: it suffices to ensure that the Lagrangian density depends only on the fields and their derivatives at a single spacetime point. In contrast, a non-local theory might involve an action of the form:
+\[
+    S[\phi_a] = \int d^4x\int d^4y \; \phi_a(x^\nu)K(x^\nu, y^\nu)\phi_a(y^\nu),
+\]
+where $K(x^\nu,y^\nu)$ is a function that couples field values at two distinct spacetime points $x^\nu$ and $y^\nu$. This explicit coupling of different spacetime points immediately makes it clear that the theory isn't local, but the non-locality becomes even clearer when one derives the Euler-Lagrange equations for this theory:
+\[
+    \int d^4y\; K(x^\nu, y^\nu)\phi_a(y^\nu) = 0.
+\]
+This is an integral equation. The behavior of $\phi_a$ at spacetime point $x^\nu$ depends on its value at all other spacetime points $y^\nu$. Thus, the theory requires global information to determine local dynamics. \\
+
+\noindent By contrast, consider the theory with action
+\[
+    S[\phi_a] = \int d^4x\; \Lag(\phi_a, \partial_\mu\phi_a)
+\]
+yielding the Euler-Lagrange equations
+\[
+    \frac{\partial\Lag}{\partial\phi_a} - \partial_\mu\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}=0.
+\]
+Here, the Lagrangian density depends only the fields and their derivatives evaluated at a single spacetime point $x^\nu$. As a result, the Euler-Lagrange equations are differential equations, which are inherently local: they determine the behavior of $\phi_a$ at $x^\nu$ based solely on how the fields change in an infinitesimally small neighborhood around that point. So, as long as we don't introduce terms that couple two distinct spacetime points in the Lagrangian density (we have no motivation to do this anyway), then our theory is manifestly local.
+\subsection{Lorentz Invariance}
+The principle of relativity states that all physical laws should be frame independent. From a philosophical perspective, this seems reasonable: if the universe truly is homogeneous and isotropic, it shouldn't at all favor a specific frame. Mathematically, this idea is expressed by ensuring that the equations of motion are frame-independent. The equations of motion for my field in my frame better be the same equations of motion for your field in your frame. How are two frames related? Lorentz transformations. $x'^\nu=\Lambda_\mu^\nu x^\mu$. There There are two ways to look If the field is truly to be a physical object, then $\phi'(x'^\nu)=\phi(x^\nu)$. That is, my field at spacetime point $x^\nu$ must equal your field at your spacetime point $x'^\nu$ (where $x'^\nu$ is the spacetime point that you see matching the spacetime point that I see). Further, both of our fields must evolve the same. This isn't just recasting the equation in a different set of coordinates (that would be just shifting $x^\nu\rightarrow x'^\nu$. Instead, we're fundamentally treating no frame as fundamental. Measure $\phi$ from any frame, and you'll see the same result. $\phi$ doesn't exist in any one frame. Now, we ask: how do frames shift? How is $x'^\nu$ related to $x^\nu$. The answer is the Lorentz transformation. Special relativity tells us that, to preserve the constancy of the speed of light, spacetime coordinates must be transformed in a certain way, so that $x'^\nu = \Lambda_\mu^\nu x^\mu$. If I measure an event at $x^\mu$, you'll see that event at $x'^\nu$.\\
+
+To ensure that a theory is Lorentz invariant, it only requires that we ensure that the action is invariant. If the action is invariant under Lorentz transformations, then of course the dynamical equations will be Lorentz invariant (its a plus that the action is itself a Lorentz scalar. Quantities that remain completely unchanged in different frames are of importance. The action remains completely unchanged). In our case, we'd like to see how a field transforms in a Lorentz transform. An active transformation is one that directly shifts the coordinates. We're looking 
+
+Passive transformation
+
+Active transformation
+
+
+
+So far, I've been using Lorentz notation without really explaining what's going on. To be precise, the Minkowski metric is ...; contraction of indices is defined as $a^\mu b_\nu = a^\mu \eta^{\rho\nu}b_\rho$. The Minkowski metric defines the geometry of spacetime. Through contraction, the Minkowski metric defines an inner product that is different from that in Euclidean physics.
+\subsection{Symmetries and Noether's Theorem}
+\subsubsection{Internal Symmetries}
+\subsection{Hamiltonian Formalism}
+\subsubsection{Legendre Transform}
+\subsubsection{}
+ 
