@@ -20,6 +20,7 @@ This is a personal learning repository documenting my independent study of Quant
 - `notes/` – Lecture-style notes and topic summaries (from Tong, Peskin & Schroeder, Srednicki, etc.)
 - `problem_sets/` – Worked solutions to textbook and lecture problems
 - `computational_qft/` – Code for simulating or visualizing QFT-related models
+- `supplemental_notes/` - Supplemental Notes on Subjects Adjacent to QFT
 - `reading_log.md` – Timeline and commentary on my progress
 
 ---
