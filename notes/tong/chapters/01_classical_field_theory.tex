@@ -78,22 +78,305 @@ yielding the Euler-Lagrange equations
 \[
     \frac{\partial\Lag}{\partial\phi_a} - \partial_\mu\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}=0.
 \]
-Here, the Lagrangian density depends only the fields and their derivatives evaluated at a single spacetime point $x^\nu$. As a result, the Euler-Lagrange equations are differential equations, which are inherently local: they determine the behavior of $\phi_a$ at $x^\nu$ based solely on how the fields change in an infinitesimally small neighborhood around that point. So, as long as we don't introduce terms that couple two distinct spacetime points in the Lagrangian density (we have no motivation to do this anyway), then our theory is manifestly local.
+Here, the Lagrangian density depends only the fields and their derivatives evaluated at a single spacetime point $x^\nu$. As a result, the Euler-Lagrange equations are differential equations, which are inherently local: they determine the behavior of $\phi_a$ at $x^\nu$ based solely on how the fields change in an infinitesimally small neighborhood around that point. So, as long as we don't introduce terms that couple two distinct spacetime points in the Lagrangian density, our theory is manifestly local.
+
 \subsection{Lorentz Invariance}
-The principle of relativity states that all physical laws should be frame independent. From a philosophical perspective, this seems reasonable: if the universe truly is homogeneous and isotropic, it shouldn't at all favor a specific frame. Mathematically, this idea is expressed by ensuring that the equations of motion are frame-independent. The equations of motion for my field in my frame better be the same equations of motion for your field in your frame. How are two frames related? Lorentz transformations. $x'^\nu=\Lambda_\mu^\nu x^\mu$. There There are two ways to look If the field is truly to be a physical object, then $\phi'(x'^\nu)=\phi(x^\nu)$. That is, my field at spacetime point $x^\nu$ must equal your field at your spacetime point $x'^\nu$ (where $x'^\nu$ is the spacetime point that you see matching the spacetime point that I see). Further, both of our fields must evolve the same. This isn't just recasting the equation in a different set of coordinates (that would be just shifting $x^\nu\rightarrow x'^\nu$. Instead, we're fundamentally treating no frame as fundamental. Measure $\phi$ from any frame, and you'll see the same result. $\phi$ doesn't exist in any one frame. Now, we ask: how do frames shift? How is $x'^\nu$ related to $x^\nu$. The answer is the Lorentz transformation. Special relativity tells us that, to preserve the constancy of the speed of light, spacetime coordinates must be transformed in a certain way, so that $x'^\nu = \Lambda_\mu^\nu x^\mu$. If I measure an event at $x^\mu$, you'll see that event at $x'^\nu$.\\
+A frame is a set of coordinate axes moving at a constant velocity\footnote[2]{Constant velocity relative to what? That's the rub. Similar to classical mechanics, acceleration is absolute in special relativity and thereby quantum field theory. In classical mechanics, you pick a frame, and decide to treat it as fundamental. Any frame moving with a constant velocity relative to you will see the same forces, and any frames accelerating relative to you will see "fictitious" forces (by definition). The same goes for QFT. Pick a frame, treat it as fundamental, and any frame moving with a constant velocity should see the same physics. General relativity fixes this notion of "absolute acceleration" (after all, why should relativity "stop" at velocity?), but general relativity isn't compatible with QFT, as we'll see.}. A different frame might have a different origin, a rotated set of coordinates axes, or be moving at a different velocity (as long as the frame isn't accelerating).\\
 
-To ensure that a theory is Lorentz invariant, it only requires that we ensure that the action is invariant. If the action is invariant under Lorentz transformations, then of course the dynamical equations will be Lorentz invariant (its a plus that the action is itself a Lorentz scalar. Quantities that remain completely unchanged in different frames are of importance. The action remains completely unchanged). In our case, we'd like to see how a field transforms in a Lorentz transform. An active transformation is one that directly shifts the coordinates. We're looking 
+\noindent The principle of relativity states that all physical laws should be frame-independent. From a philosophical perspective, this seems reasonable: if the universe truly is homogeneous and isotropic, it shouldn't at all favor a specific frame. Mathematically, this idea is expressed by ensuring that the equations governing the dynamics of the fields are frame-independent. But, how do we relate frames? Lorentz transformations (technically, Poincare transformations since these include both Lorentz transformations and shifts of origin). Lorentz transformations ensure the speed of light remains constant in all frames, preserving the relativistic structure of spacetime. Two spacetime points are related as $x'^\nu=\Lambda_{\;\mu}^\nu x^\mu$, where $\Lambda_{\;\mu}^\nu$ is a general Lorentz transformation and obeys $\Lambda_{\;\nu}^\mu\eta_{\mu\sigma}\Lambda^\sigma_{\;\rho}=\eta_{\nu\rho}$ (the spacetime interval needs to be conserved across different frames).\\
 
-Passive transformation
+\noindent Let's consider a scalar field: if the field is truly to be a physical object, then $\phi'(x'^\nu)=\phi(x^\nu)$\footnote[6]{Note that people in different frames measure different fields. The only relationship between the different fields comes from requiring the field is "physical". Another object of interest could be fields or quantities that don't change at all frame-to-frame. This is to say that $\phi'(x')=\phi(x')$. Since the field is physical, $\phi'(x')\rightarrow\phi(x)$ [of course, this is if you require the field to be one physical object. No such restriction would apply if you allowed all frames to have their own field, but what use would that be?]. $\rightarrow \phi'(x')=\phi(\Lambda^\nu_{\;\mu}x^\mu)$. No matter where you are, you see the exact same field. This would imply that the field itself is constant (choose a field with $\phi(x = 1) = 1$ and $\phi(x=2)=2$. Shift frames by $x=1$. Then, $\phi'(x'=1)=2\ne 1$. So, the field must be constant). A constant field could represent charge or other such quantities.}. That is, my field at spacetime point $x^\nu$ must equal your field at your spacetime point $x'^\nu$, where $x'^\nu=\Lambda_{\;\mu}^\nu x^\mu$. This is the passive viewpoint: we claim that the field is physical and look at what this must requires of the field as seen by different observers connected by a Lorentz transformation. It happens to be mathematically identical to the active viewpoint in which we're keeping the coordinates the same but transforming the fields\footnote{In Tong's lecture notes, he reverses this, and the two equations he comes up with for active and passive transformations differ. As far as I can tell, this is a matter of what you're considering is "actively transforming." I consider it active if the field itself is transforming and passive if the field isn't changing but the coordinates are. Tong seems to reverse this. Further, the reason that he gets two different expressions for passive and active transformations, at least to me, seems to just be because he swaps what the spacetime point $x$ is representing between the two interpretations. Notice that the math Tong ends up using is identical to the math that I come up with; yet I use the "passive" (at least to me) interpretation of requiring $\phi'(x') = \phi(x)$.}. \\
 
-Active transformation
+\noindent The field is physical, but how the field evolves isn't guaranteed to be invariant since the equations of motion mix spacetime points. For a law to be fundamental, it needs to be the same in all frames. How could we say a law is fundamental if it only works in one frame; i.e. if all other frames had to recast the equation to the one frame to ensure it works. To ensure that a theory is Lorentz invariant, it only requires that we ensure that the action is invariant. If the action is invariant under Lorentz transformations, then of course the dynamical equations will be Lorentz invariant (its a plus that the action is itself a Lorentz scalar. Quantities that remain completely unchanged in different frames are of importance. The action remains completely unchanged). In our case, we'd like to see how a field transforms in a Lorentz transform.\\
 
+\noindent Say two observers are related by the Lorentz transformation $x'^\nu = \Lambda^\nu_{\;\mu}\;x^\mu$. The $x'$ observer has a different coordinate system, but it's just as fundamental as the $x$ observer's coordinate system. The field is to thought of as physical. To ensure that the field is a physical object, independent of frame, the field that the $x'$ observer sees, $\phi'(x')$, needs to match what the $x$ observer sees at the corresponding point. I.e., $\phi'(x') = \phi(x) \rightarrow \phi'(x') = \phi(\Lambda^{-1}x')$. This is the result for a scalar field (we say that the field transforms trivially (as a scalar) under the Lorentz group). We'll see later that there are only a few irreducible representations for how a field is allowed to transform under the Lorentz group; scalar fields are the simplest amongst these. While the coordinates of the field transform, the internal structure of the field doesn't respond to the Lorentz group (this is why we say "trivial representation"). This changes when we move to spinor fields, vector fields, and tensor fields.
+\subsubsection{Checking Lorentz Invariance of Klein-Gordon Theory}
+First, let's find how the derivative of a field in one frame transforms under a Lorentz transformation. Since $x' = \Lambda x$, $x' = x'(x)$. Thus,
+\[
+    \frac{\partial \phi'(x')}{\partial x'^\mu} =\frac{\partial\phi(\Lambda^{-1}x')}{\partial x'^\mu}= \frac{\partial \phi(x)}{\partial x^\nu}\frac{\partial x^\nu}{\partial x'^\mu} = \frac{\partial \phi(x)}{\partial x^\nu}(\Lambda^{-1})^\nu_{\;\mu}.
+\]
+\[
+    \partial'_\mu\phi'(x') = (\Lambda^{-1})^\nu_{\;\mu}\partial_\nu\phi(x)
+\]
+To see if the KG Lagrangian density is truly Lorentz invariant, we're going to look at how $\Lag'$ is measured in the $x'$ frame and test to see if this is equal to the $\Lag$ that's measured in the $x$ frame. So,
+\begin{align*}
+    \Lag'&= \frac{1}{2}\partial'_\mu\phi'(x')\partial'^\mu\phi'(x') - \frac{1}{2}m^2\phi'^2(x')\\
+    & = \frac{1}{2}\partial'_\mu\phi'(x')\eta^{\mu\rho}\partial'_\rho\phi'(x') - \frac{1}{2}m^2\phi'^2(x')\\
+    &=\frac{1}{2}(\Lambda^{-1})^\nu_{\;\mu}\partial_\nu\phi(x)\eta^{\mu\rho}(\Lambda^{-1})^\sigma_{\;\rho}\partial_\sigma\phi(x)-\frac{1}{2}m^2\phi^2(x)\\
+    & =\frac{1}{2}\partial_\nu\phi(x)\eta^{\nu\sigma}\partial_\sigma\phi(x) - \frac{1}{2}m^2\phi^2(x)\\
+    &=\frac{1}{2}\partial_\nu\phi(x)\partial^\nu\phi(x)-\frac{1}{2}m^2\phi^2(x) = \Lag.
+\end{align*}
+Where we used the fact $(\Lambda^{-1})^\nu_{\;\mu}\eta^{\mu\rho}(\Lambda^{-1})^\sigma_{\;\rho}=\eta^{\nu\sigma}$ since this holds for any Lorentz transformation (it's the inverse statement of what we listed in the section above; just take the inverse of both Lorentz transformations in that statement). Thus, both observers measure the same Lagrangian density, and the resulting equations of motion will have the same form; i.e., the theory is Lorentz invariant. Technically, what we just proved is a slightly stronger condition than is generally required. If you remember, I mentioned that Lorentz invariance only demands that the action remains invariant. In this case,     
+\[
+    S' = \int d^4x' \Lag'(\phi', \partial'_\mu\phi') = \int d^4x \Lag (\phi, \partial_\mu\phi) = S
+\]
+since $d^4x$ is a Lorentz invariant (see supplemental notes on classical EM to SR). In general, two volume elements are equal if the determinant of their Jacobian, in this case $\Lambda$, is equal to one. For most Lorentz transformations we'll consider, $\text{det}(\Lambda)=1$. These are the transformations connected to the identity (in this case, identity is the transformation that leaves the frame the same): the transformations that can result from continuously deforming one frame or set of coordinates (either by boosting, rotating, or translating). All transformations connected to the identity can be continuously deformed into one other. They're called continuous transformations because they can scale continuously (infinitesimal transformation to finite transformation). There are transformations in the Lorentz group for which $\text{det}(\Lambda)\ne1$. These are transformations not connected to the identity, meaning you can't continuously transform one frame or set of coordinates into the frame that results from these operations.  The other transformations are called discrete transformations. There is no way to reach these kind of transformations from any other type of transformation. Continuous transformations that are connected to the identity are the transformations that can be thought of changes of frame; discrete transformations that are not connected to identity can't really be thought of as changes in frame. Instead, they represent physically changing the system. Such transformations include parity transformations, time reversal transformations, and combinations of both of these. To show the difference. Take a frame. You can rotate this frame continuously, you can speed it up (boost) continuously, and you can shift it's origin continuously. You can't flip it's axes from a right-handed system to a left-handed system continuously. You either flip the axes, or you don't. And, unless you decide that this transformation is just relabeling the coordinates (in which case, you'd relabel everything else to keep everything consistent, effectively changing nothing), flipping the axes corresponds to flipping the physical system. Requiring invariance under such an operation isn't just requiring invariance under frame changes; you're asking that the system remain invariant after physically changing it (if I flip the proton to the "opposite side of space," does the physics remain the same?). Some theories happen to be invariant under time reversal and parity operations separately, but it is never a required facet of a theory on the same terms as Lorentz invariance.
 
-
-So far, I've been using Lorentz notation without really explaining what's going on. To be precise, the Minkowski metric is ...; contraction of indices is defined as $a^\mu b_\nu = a^\mu \eta^{\rho\nu}b_\rho$. The Minkowski metric defines the geometry of spacetime. Through contraction, the Minkowski metric defines an inner product that is different from that in Euclidean physics.
 \subsection{Symmetries and Noether's Theorem}
+When a field theory is invariant under some transformation of the fields, there exists some conserved quantity associated with that transformation. This is shown through Noether's theorem, which we now prove. Consider an infinitesimal transformation of the fields
+\[
+    \phi_a\rightarrow\phi_a + \epsilon\chi_a,
+\]
+where $\epsilon$ is an infinitesimal parameter. Notice that this transformation is connected to the identity in that the transformed field is a continuous deformation of the old field. We say that the field theory is invariant under such a transformation if the transformation changes the Lagrangian by a total derivative
+\[
+    \delta\Lag = \Lag'-\Lag= \partial_\mu F^\mu.
+\]
+The total derivative is allowed because the resulting equations of motion remain unchanged: \[
+    S - S' = \int_\Omega d^4x \;\partial_\mu F^\mu = \int_{\partial\Omega}d\Sigma_\mu\; F^\mu = 0,
+\]
+where the last integral goes to zero because we're considering transformations that either vanish at the boundary of the spacetime boundary we're considering, or, if we're considering an infinite spacetime boundary, transformations such that $F^\mu$ falls off quickly enough that the surface term goes to zero at infinity. Now, assuming we have a Lagrangian density $\Lag(\phi_a, \partial_\mu\phi_a)$, the transformed Lagrangian density is given by:
+\begin{align*}
+    \delta\Lag = \Lag' - \Lag &= \Lag(\phi_a+\epsilon\chi_a, \partial_\mu(\phi_a + \epsilon\chi_a)) - \Lag(\phi_a, \partial_\mu\phi_a)\\
+    & = \Lag(\phi_a, \partial_\mu\phi_a) + \frac{\partial\Lag}{\partial\phi_a}\epsilon\chi_a + \frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\epsilon\partial_\mu\chi_a + \mathcal{O}(\epsilon^2) - \Lag(\phi_a,\partial_\mu\phi_a)\\
+    & = \frac{\partial\Lag}{\partial\phi_a}\epsilon\chi_a + \frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\epsilon\partial_\mu\chi_a +\mathcal{O}(\epsilon^2)\\
+    & = \frac{\partial\Lag}{\partial\phi_a}\epsilon\chi_a+\partial_\mu\left(\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\epsilon\chi_a\right)-\epsilon\chi_a\partial_\mu\left(\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\right) + \mathcal{O}(\epsilon^2)\\
+    & = \left( \frac{\partial\Lag}{\partial\phi_a} - \partial_\mu\left(\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\right)\right)\epsilon\chi_a + \partial_\mu\left(\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\epsilon\chi_a\right) + \mathcal{O}(\epsilon^2).
+\end{align*}
+On-shell (when the fields obey the EL equations), the first term in parenthesis is zero by definition. Thus, to first order\footnote{This is not an approximation. First-order isolates the first derivative contribution; i.e., it isolates how the Lagrangian changes infinitesimally under an infinitesimal transformation. We're looking at an infinitesimal transformation, so this is mathematically precise.}, we have
+\begin{align*}
+    \delta\Lag &= \partial_\mu\left(\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\epsilon\chi_a\right) = \partial_\mu F^\mu\\
+    &\rightarrow \partial_\mu\left(\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\epsilon\chi_a-F^\mu\right) = 0.
+\end{align*}
+So, if the Lagrangian density changes by a total derivative, $\delta\Lag = \partial_\mu F^\mu$ under the infinitesimal transformation $\phi_a\rightarrow \phi_a+\epsilon\chi_a$ (for $\epsilon$ infinitesimal), we have
+\[
+    \partial_\mu j^\mu = 0 \quad\text{where}\quad j^\mu = \frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\chi_a - F^\mu 
+\]
+where we've dropped the $\epsilon$ since it's only a bookkeeping device meant to characterize the size of the transformation and can be absorbed into $\chi_a$ (or keep it there; it doesn't matter). In other words, if a theory is invariant under a transformation, then there is a conserved current $j^\mu$. This might not be the only conserved quantity in the theory, but it's often a very useful one. We list some examples of conserved quantities in the next subsection. Now, $\partial_\mu j^\mu = \partial_t j^0 - \div{\vec{J}}=0\rightarrow \partial_t j^0=\div{\vec{J}}$ (where $\vec{J}=(j^1,j^2,j^3)$). From this, we can see that Noether's theorem implies a conserved charge:
+\begin{align*}
+    Q &= \int_{V} d^3x\; j^0 \\
+    \frac{dQ}{dt} &= \int_{V}d^3x\;\frac{\partial j^0}{\partial t} = -\int_{V}d^3x\;\partial_i j^i\\
+    \frac{dQ}{dt}&=-\int_{V}d^3x\; \div{\vec{J}} = -\int_{\partial V}d^2x\;\hat{n}\cdot \vec{J}\\
+    \rightarrow&\frac{dQ}{dt}+\int_{\partial V}d^2x\;\hat{n}\cdot\vec{J}=0.
+\end{align*}
+This is a local conservation law. I.e., for any spatial volume, the charge in the volume, $Q$, is changing by how much current, $\vec{J}$ is leaving the surface. Assuming $\vec{J}$ falls off fast enough, this means that $\dot{Q}=0$ when considering our volume to be all of space. Thus, this total charge is conserved.
+
+\subsubsection{Translational Symmetry and the Energy-Momentum Tensor}
+From classical Noether's theorem, spatial translation invariance leads to the conservation of linear momentum, time translation invariance leads to the conservation of energy, and rotational invariance leads to the conservation of angular momentum. We'll see a similar result in the next few sections. First, consider a spacetime translation
+\[
+    x^\nu \rightarrow x^\nu - \epsilon^\nu
+\]
+(we could have easily chosen $+\epsilon^\nu$). Notice that this includes both spatial translations and time translations. Imposing such a transformation on a field is saying: I keep my position the same, but change my field such that it's values are shifted by $\epsilon^v$ (active viewpoint). Again, this is mathematically the same as saying: I keep the field the same, but I put my coordinate system through a spatial transformation. Either way, $\phi'(x') = \phi(x) = \phi(x^\nu + \epsilon^v)$. Looking at the shifted field:
+\[
+    \phi(x^\nu)\rightarrow\phi(x^\nu+\epsilon^\nu) = \phi(x^\nu) + \epsilon^\nu\partial_\nu\phi(x^\nu).
+\]
+So, we have an infinitesimal transformation of the fields $\phi_a\rightarrow \phi_a + \epsilon\chi_a$, where, in this case, $\epsilon\chi_a = \epsilon^\nu\partial_\nu\phi_a$. Let's consider a general Lagrangian density with no explicit spacetime point dependence $\Lag(\phi_a, \partial_\mu\phi_a)$. Under this transformation, the Lagrangian density becomes
+\[ 
+    \Lag(\phi_a, \partial_\mu\phi_a) \rightarrow \Lag(\phi_a + \epsilon^\nu\partial_\nu\phi_a, \partial_\mu\phi_a + \epsilon^\nu\partial_\mu\partial_\nu\phi_a).
+\]
+Expanding $\delta\Lag$ to first order:
+\begin{align*}
+    \delta\Lag &= \frac{\partial\Lag}{\partial\phi_a}\epsilon^\nu\partial_\nu\phi_a + \frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\epsilon^\nu\partial_\mu\partial_\nu\phi_a\\
+    & = \epsilon^\nu\left(\frac{\partial\Lag}{\partial\phi_a}\partial_\nu\phi_a + \frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\partial_\mu\partial_\nu\phi_a\right).
+\end{align*}
+A simple application of chain rule tells us that
+\[
+    \partial_\nu\Lag(\phi_a(x), \partial_\mu\phi(x)) = \frac{\partial\Lag}{\partial\phi_a}\partial_\nu\phi_a + \frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\partial_\nu\partial_\mu\phi_a.
+\]
+So,
+\[
+    \delta\Lag = \partial_\nu\epsilon^\nu\Lag(x);
+\]
+the change in our Lagrangian density varies by a total derivative $\partial_\mu F^\mu$ where $F^\mu = \epsilon^\mu\Lag$. Now, as mentioned before, we require one of two things for Noether's theorem to truly work: $\epsilon^\mu\Lag$ either needs to be zero at our spacetime boundary, or, in the case of an infinite spacetime boundary, $\epsilon^\mu\Lag$ needs to fall off fast enough that the surface term goes to zero. We'd like $\epsilon^\nu$ to be constant, so this requirement means that we need $\Lag$ to either vanish or fall away fast enough. This isn't too hard to achieve in practice. Most solutions to the field theories we care about do indeed fall away at infinity (they're usually localized). Still, this is a subtlety that needs checking. To find the conserved current associated with this symmetry, it's just a matter of straight-forward substitution. For us, $\chi_{a} = \epsilon^\nu\partial_\nu\phi_a$, and $F^\mu=\epsilon^\mu\Lag$. We're handling four symmetries at the same time here (one for each spacetime coordinate translation); the derivation of Noether's theorem dealt with each field getting one transformation. Here; we're applying four copies of Noether's theorem: each field $\phi_a$ is translated four different ways, and we're just dealing with them all at once for convenience.
+\begin{align*}
+    \partial_\mu j^\mu &= 0 \quad\text{with}\\
+    j^\mu &= \frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\epsilon^\nu\partial_\nu\phi_a - \epsilon^\mu\Lag\\
+    &= \epsilon^\nu\left(\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\partial_\nu\phi_a - \delta^\mu_{\nu}\Lag\right).
+\end{align*}
+Better yet, let's separate the different types of symmetries:
+\begin{align*}
+    &\partial_\mu j^\mu = \partial_\mu (\epsilon^\nu j^\mu_{\;\nu}) = \epsilon^\nu\partial_\mu j^\mu_{\;\nu}=0\\
+    &\rightarrow \partial_\mu j^\mu_{\;\nu}=0 \quad\text{where}\quad j^\mu_{\;\nu} = \frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\partial_\nu\phi_a - \delta^\mu_{\nu}\Lag
+\end{align*}
+since $\epsilon^\nu$ is arbitrary\footnote{Note that I'm not dividing out $\epsilon^\nu$. We're implicitly summing over $\nu$, so I can't just divide $\epsilon^\nu$ out. Division should always feel incredibly uncomfortable to you when working with indices. You can almost never do it. The reason we're allowed to say that $\epsilon^\nu\partial_\mu j^\mu_{\;\nu}=0$ implies that $\partial_\mu j^\mu_{\;\nu}=0$ is because $\epsilon^\nu$ is completely arbitrary. This is just linear algebra. $\epsilon^\nu\partial_\mu j^\mu_{\;\nu}$ is just the Minkowski inner product between vectors $\epsilon^\nu$ and $\partial_\mu j^\mu_{\;\nu}$. For any non-degenerate inner product (it's not difficult to show that the Minkowski inner product is non-degenerate) $<\cdot,\cdot>$, if $<a,b>=0$ for all vectors $a$, then $b=0$. The Minkowski inner product between $\epsilon^\nu$ and $\partial_\mu j^\mu_{\;\nu}$ holds for any arbitrary vector $\epsilon^\mu$. Thus, $\partial_\mu j^\mu_{\;\nu}=0$}. This gives us four currents (1 for time translation and 3 for spatial translation). $j^\mu_{\;\nu}$ is often written as $T^\mu_{\;\nu}$ and is called the energy-momentum tensor.\\
+
+\noindent To see what the different components of the energy-momentum tensor represent, let's look at the corresponding conserved charges.$T^\mu_{\;0}$ is the conserved current associated with time translation. As such, we can define its associated charge with energy:
+\begin{align*}
+    E &= \int d^3x\;T^0_{\;0}\\
+    \frac{dE}{dt}&=\int d^2x \; n_iT^i_{\;0}.
+\end{align*}
+So, $T^{00}$ is the spatial energy density, and $T^{i0}$ is the energy flux. A similar story for $T^\mu_{\;i}$: this is the conserved current associated with spatial translation in the $i$th direction. As such, we can define its associated charge with linear momentum:
+\begin{align*}
+    P^i&=\int d^3x\;T^0_{\;i}\\
+    \frac{dP^i}{dt} &= \int d^2x\;n_jT^j_{\;i}.
+\end{align*}
+So, $T^{0i}$ is the $i$th momentum spatial density, and $T^{ji}$ is the $i$th momentum flux. Further, $T^{ii}$ represents pressure: the $i$th momentum flux in the $i$th direction, and $T^{ij}$ ($i\ne j$) represents shears: the $i$th momentum flux in the $j$th direction. Lastly, notice that, if $T^{\mu\nu}$ is symmetrical, $T^{\mu\nu}=T^{\nu\mu}$, then the energy flux is equal to the momentum spatial density, and shears are symmetric. It turns out, we can almost always add something to $T^{\mu\nu}$ to make it symmetric. Specifically, consider the tensor  $\Gamma^{\rho\$\mu\nu}$ which is antisymmetric in the first two indices $\rho$ and $\mu$ ($\Gamma^{\rho\mu\nu}=-\Gamma^{\mu\rho\nu}$). Then, 
+\begin{align*}
+    \partial_\mu\partial_\rho\Gamma^{\rho\mu\nu} &=\partial_\mu\partial_\rho\Gamma^{\rho\mu\nu}\\
+    \rightarrow \partial_\mu\partial_\rho \Gamma^{\rho\mu\nu} &= -\partial_\mu\partial_\rho\Gamma^{\mu\rho\nu}\\
+    \rightarrow \partial_\mu\partial_\rho\Gamma^{\rho\mu\nu}&=-\partial_\rho\partial_\mu\Gamma^{\rho\mu\nu}\\
+    \rightarrow \partial_\mu\partial_\rho\Gamma^{\rho\mu\nu}&=-\partial_\mu\partial_\rho\Gamma^{\rho\mu\nu}\\
+    \rightarrow \partial_\mu\partial_\rho\Gamma^{\rho\mu\nu} &= 0.    
+\end{align*}
+Thus, if we can find an tensor $\Gamma^{\rho\mu\nu}$ antisymmetric in its first two indices,
+\[
+    \Theta^{\mu\nu}= T^{\mu\nu} + \partial_\rho\Gamma^{\rho\mu\nu}
+\]
+is also an invariant tensor. All that we'd have to do is find such a tensor $\Gamma^{\rho\mu\nu}$ that happens to produce a symmetric tensor when added to $T^{\mu\nu}$.
+\subsubsection{Conserved Currents from Lorentz Symmetry}
+Now that we've covered invariance under spacetime translations, let's look at the current that's conserved due to invariance under Lorentz transformations. First, let's find the infinitesimal form. Since we only care about Lorentz transformations connected to identity:
+\[
+    \Lambda^\mu_{\;\nu} = \delta^\mu_{\;\nu} + \omega^\mu_{\;\nu}.
+\]
+This is just the identity matrix added to an infinitesimal matrix. To ensure it's a Lorentz transformation:
+\begin{align*}
+    \Lambda^\mu_{\;\nu}\eta^{\nu\sigma}\Lambda^\rho_{\;\sigma} &= \eta^{\mu\rho}\\
+    (\delta^\mu_{\;\nu} + \omega^\mu_{\;\nu})(\delta^\rho_{\;\sigma}+\omega^{\rho}_{\;\sigma})\eta^{\nu\sigma}& = \eta^{\mu\rho}\\
+    (\delta^\mu_{\;\nu}\delta^\rho_{\;\sigma}+\delta^\mu_{\;\nu}\omega^{\rho}_{\;\sigma} + \omega^\mu_{\;\nu}\delta^{\rho}_{\;\sigma})\eta^{\nu\sigma}&=\eta^{\mu\rho}\\
+    \eta^{\mu\rho} + \eta^{\mu\sigma}\omega^{\rho}_{\;\sigma} + \omega^{\mu}_{\;\nu}\eta^{\nu\rho} &= \eta^{\mu\rho}\\
+    \omega^{\rho\mu} + \omega^{\mu\rho} & = 0\\
+    \omega^{\rho\mu} &= -\omega^{\mu\rho}
+\end{align*}
+(where we expanding to only to first order in $\omega$ since it's infinitesimal). Thus, $\Lambda^\mu_{\;\nu} = \delta^\mu_{\;\nu} + \omega^\mu_{\;\nu}$ is an infinitesimal Lorentz transformation as long as the infinitesimal matrix $\omega$ is antisymmetric in its two indices. Expanding the field under a Lorentz transformation:
+\begin{align*}
+    \phi_a(x^\mu)\rightarrow\phi_a(\Lambda^{-1})^\mu_{\;\nu}x^\nu) &= \phi_a((\delta^\mu_{\;\nu}-\omega^\mu_{\;\nu})x^\nu)\\
+    &=\phi_a(x^\mu-\omega^\mu_{\;\nu}x^\nu)\\
+    &= \phi_a(x^\mu) - \omega^\mu_{\;\nu}x^\nu\partial_\mu\phi_a(x^\mu)
+\end{align*}
+where its an inverse transformation for the same reason as the spacetime translation case (we're asking, how can I stay in the same position, but physically shift the field or, equivalently, how can the physical field stay the same while I boost into a new frame under a Lorentz transformation)\footnote{If you take $\Lambda\Lambda^{-1}=I$, you'll see that the inverse to the infinitesimal Lorentz transformation given by $\Lambda = I + \omega$ is $\Lambda^{-1} = I - \omega$.}. Now, expanding the Lagrangian density to first-order:
+\begin{align*}
+    \Lag(\phi_a, \partial_\mu\phi_a)&\rightarrow \Lag(\phi_a - \omega^\rho_{\;\nu}x^\nu\partial_\rho\phi_a, \partial_\mu\phi_a-\omega^\rho_{\;\nu}\partial_\mu (x^\nu\partial_\rho\phi_a))\\
+    & = \Lag(\phi_a, \partial_\mu\phi_a) - \frac{\partial\Lag}{\partial\phi_a}\omega^\rho_{\;\nu}x^\nu\partial_\rho\phi_a-\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\omega^\rho_{\;\nu}\partial_\mu(x^\nu\partial_\rho\phi_a) \\
+    \rightarrow\delta\Lag&= - \frac{\partial\Lag}{\partial\phi_a}\omega^\rho_{\;\nu}x^\nu\partial_\rho\phi_a-\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\omega^\rho_{\;\nu}\delta^\nu_{\;\mu}\partial_\rho\phi_a - \frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\omega^\rho_{\;\nu}x^\nu\partial_\mu\partial_\rho\phi_a\\
+    &= -\omega^\rho_{\;\nu}x^\nu\left(\frac{\partial\Lag}{\partial\phi_a}\partial_\rho\phi_a+\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\partial_\mu\partial_\rho\phi_a\right) - \frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\omega^\rho_{\;\mu}\partial_\rho\phi_a\\
+    & = -\omega^{\rho}_{\;\nu}x^\nu\partial_\rho\Lag - \frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\omega^\rho_{\;\mu}\partial_\rho\phi_a\\
+    & = -\partial_\rho(\omega^\rho_{\;\nu}x^\nu\Lag)-\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\omega^\rho_{\;\mu}\partial_\rho\phi_a,
+\end{align*}
+where, in the second to last line, we used the result from the section on spacetime translation invariance, and, in the last line, we used $\partial_\rho(\omega^\rho_{\;\nu}x^\nu\Lag) = \omega^\rho_{\;\nu}x^\nu\partial_\rho\Lag + \omega^{\rho}_{\;\nu}\delta^{\nu}_{\;\rho}\Lag=\omega^{\rho}_{\;\nu}x^\nu\partial_\rho\Lag$ since $\omega^{\rho}_{\;\nu}\delta^\nu_{\;\rho}=\omega^\rho_{\;\rho}=0$ since $\omega$ is antisymmetric. So, if the second term in the final line goes to zero, we have that $\Lag$ changes by a total derivative. But, the second term in the final line doesn't necessarily go to zero. First, let's assume that
+\[
+    A^\mu_{\;\rho}=\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\partial_\rho\phi_a
+\]
+is symmetric in its indices. Then, since $\omega$ is antisymmetric, 
+\[
+    A^\mu_{\;\rho}\omega^\rho_{\;\mu} = \eta_{\rho\sigma}A^{\mu\sigma}\eta^{\sigma\rho}\omega_{\sigma\mu} = \delta^{\rho}_{\;\sigma} A^{\mu\sigma}\omega_{\sigma\mu}=A^{\mu\rho}\omega_{\rho\mu}
+\]
+\begin{align*}
+    \rightarrow A^{\mu\rho}\omega_{\rho\mu} &= -A^{\rho\mu}\omega_{\mu\rho}\\
+    & = -A^{\mu\rho}\omega_{\rho\mu}\\
+    \rightarrow A^{\mu\rho}\omega_{\rho\mu}&=0.
+\end{align*}
+The first line just follows from $\eta^{\rho\mu}\eta_{\mu\rho}=\delta^\rho_{\;\mu}$. We didn't assume anything about $A$ and $\omega$ other than that they were symmetric and antisymmetric, respectively. Thus, the complete contraction of a symmetric and antisymmetric matrix (or tensor) is zero. So, as long as $A^\mu_{\;\rho}$ is symmetric, the change in $\Lag$ is a total derivative. Symmetry of $A^\mu_{\;\rho}$ depends on the specific form of $\Lag$, but it is indeed symmetric most of the time. It's easy to show this for the Klein-Gordon Lagrangian density, and a theorem shows that this result generally holds if $\Lag$ depends on $\partial_\rho\phi_a$ only through functions of the form $X=\eta^{\mu\nu}\partial_\mu\phi_a\partial_\nu\phi_a$. This is the case for almost every Lagrangian you'll see in this text, so it's safe to assume that $\delta\Lag$ is a total derivative under Lorentz transformations \footnote{If you notice, this term never appears in Tong's lecture notes. This is because Tong makes the following argument: once you plug in a form of the field, the Lagrangian density is just a function of $x$, so we can apply the spacetime transformation on $x$ and see how $\Lag$, now treated as a function of $x$, changes to first-order. This is assuming that applying the spacetime transformation to the fields (which is a function of spacetime coordinates), then applying the resulting field transformations to the Lagrangian (which is a function of the fields and their derivatives) is the same thing as just applying the spacetime transformation to the Lagrangian treated as a function of the spacetime coordinates. In other words, Tong gets rid of the middle man. The idea is that the error in doing this is greater than first-order and is therefore irrelevant. This happens to be the case for spacetime translations, but the middle man contributes a first-order term when considering the Lorentz transformations. Most of the time, that extra term goes to zero because of the symmetry-antisymmetry argument I made above, so Tong ignores it. I'm being mostly pedantic, but, if you're like me, you'd rather see things in complete rigor even if it's not always applicable.}. Alright, now we can directly apply Noether's theorem. We have $\chi_a= -\omega^\mu_{\;\nu}x^\nu\partial_\mu\phi_a$, and $\delta\Lag=\partial_\mu F^\mu$ for $F^\mu = -\omega^\mu_{\;\nu}x^\nu\Lag$. Plugging this in, we get 
+\begin{align*}
+    \partial_\mu j^\mu &= 0\\
+    j^\mu &= -\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\omega^\rho_{\;\nu}x^\nu\partial_\rho\phi_a + \omega^\mu_{\;\nu}x^\nu\Lag\\
+    &=-\omega^\rho_{\;\nu}x^\nu\left(\frac{\partial\Lag}{\partial(\partial_\mu\phi_a)}\partial_\rho\phi_a+\delta^\mu_{\;\rho}\Lag\right)\\
+    &=-\omega^{\rho}_{\;\nu}x^\nu T^\mu_{\;\rho}\\
+    \rightarrow \partial_\mu j^\mu &= \partial_\mu(-\omega^{\rho}_{\;\nu} j^{\mu\nu}_{\;\;\rho}) = -\omega^\rho_{\;\nu}\partial_\mu j^{\mu\nu}_{\;\;\rho}= 0
+\end{align*}
+Now, it may seem like we can say, as we did in the derivation for the energy-momentum tensor: "well, $\omega^\rho_{\;\nu}$ is arbitrary, so $\partial_\mu j^{\mu\nu}_{\;\nu}=0$," but not so fast. Before, we noted that $\epsilon^\nu \partial_{\mu}j^\mu_{\;\nu}$ is just the Minkowski inner product between $\epsilon^\nu$ and $\partial_\mu j^\mu_{\;\nu}$. Since the inner product is zero for all $\epsilon^\mu\in\mathbb{R}^4$, $\partial_\mu j^\mu_{\;\nu}=0$. But, in this case, $\omega^\rho_{\;\nu}$ isn't completely arbitrary in that it doesn't span all of $\mathbb{R}^{4\times 4}$. It needs to be antisymmetric, so we can't claim that, since the inner product goes to zero, $\partial_\mu j^{\mu\nu}_{\;\;\rho}=0$. At least, not without a little massaging first. This reflects that not all of the currents in $j^{\mu\nu}_{\;\;\rho}$ as written here are ($\mu,\rho\in[0,3]$ gives us 16 currents) are independent. Because of the antisymmetry of $\omega^{\rho}_{\;\nu}$, there are only 9 independent current. You can see this pretty explicitly just be looking at specific indices: take the $\rho=\nu$ term. If we naively strip off $\omega$, this term still gives a conserved current, but $\omega^{\rho}_{\;\rho}=0$, so $\partial_\mu j^{\mu\rho}_{\;\;\rho}$ doesn't even need to be conserved to still satisfy Noether's theorem. So, let's massage this expression to allow us to get rid of $\omega^\rho_{\;\nu}$. First, let's note that:
+\begin{align*}
+    \text{if}\quad -\omega^{\rho}_{\;\nu}\partial_\mu j^{\mu\nu}_{\;\;\rho} &= 0, \quad \text{then}\\
+    -\omega^{\rho}_{\;\nu}\frac{1}{2}\partial_\mu\left(j^{\mu\nu}_{\;\;\rho}-j^{\mu\rho}_{\;\;\nu} \right) &= -\frac{1}{2}\omega^{\rho}_{\;\nu}\partial_\mu j^{\mu\nu}_{\;\;\rho}+\frac{1}{2}\omega^\rho_{\;\nu}\partial_\mu j^{\mu\rho}_{\;\;\nu}\\
+    &=0 - \frac{1}{2}\omega^{\nu}_{\;\rho}\partial_\mu j^{\mu\rho}_{\;\;\nu}\\
+    &=-\frac{1}{2}\omega^{\rho}_{\;\nu}\partial_\mu j^{\mu\nu}_{\;\;\rho} = 0,
+\end{align*}
+So, $\mathcal{J}^{\mu\nu}_{\;\;\rho} = \frac{1}{2}\left(j^{\mu\nu}_{\;\;\rho} - j^{\mu\rho}_{\;\;\nu}\right)$ is another conserved current in the sense that $-\omega^{\rho}_{\;\nu}\partial_\mu\mathcal{J}^{\mu\nu}_{\;\;\rho}=0$. If you're familiar with linear algebra, you'll note that this is just the antisymmetric component of $j^{\mu\nu}_{\;\;\rho}$. In general, we can expand any matrix into an antisymmetric and symmetric component with:
+\begin{align*}
+    M^{\mu\nu} &= \frac{1}{2}(M^{\mu\nu}+M^{\nu\mu}) + \frac{1}{2}(M^{\mu\nu}-M^{\nu\mu})\\
+    &= M^{(\mu\nu)} + M^{[\mu\nu]},
+\end{align*}
+where $M^{(\mu\nu)}$ is just shorthand for the first term in the first line, which is symmetric as you can easily check, and $M^{[\mu\nu]}$ is just shorthand for the second term in the first line, which is antisymmetric as you can easily check. In general, you can break a tensor into symmetric and antisymmetric components for any pair of indices with this same procedure. So $\mathcal{J}^{\mu\nu}_{\;\;\rho} = j^{\mu[\nu}_{\;\;\rho]}$. $\mathcal{J}^{\mu\nu}_{\;\;\rho}$ is just the antisymmetric component of $j^{\mu\nu}_{\;\;\rho}$: it's just the component that isolates the 6 independent generators of the Lorentz transformation. This new, antisymmetric current solves all of our problems. $\omega^\rho_{\;\nu}\partial j^{\mu\nu}_{\;\;\rho}$ is an inner product defined over rank-2 matrices / tensors (you can check that it's indeed an inner product pretty easily, but since it's built from the Minkowski inner product, this fact follows immediately), but $\omega^\rho_{\;\nu}$ isn't an arbitrary rank-2 matrix; it's antisymmetric. So, we can't conclude "inner product $<A,B> =0$ for \textit{all} $A$, so $B$ is zero" since $\omega^{\rho}_{\;\nu}$ doesn't span the space of all rank-2 matrices. $\omega^{\rho}_{\;\nu}$ does, however, span the space of all antisymmetric rank-2 matrices (since we assume it's arbitrary except for antisymmetry). Thus, if we looked at the restriction of  the inner product to the space of rank-2 matrices, we could drop the $\omega^{\rho}_{\;\nu}$. We can't do this just yet because $j^{\mu\nu}_{\;\;\rho}$ isn't antisymmetric. So, we antisymmetrize it (which does lose information, but it's the only component of $j^{\mu\nu}_{\;\;\rho}$ that is conserved independently, so it's all we care about here). Then, the inner product is restricted to the space of antisymmetric rank-2 matrices. $\omega^\rho_{\;\nu}$ spans this space, so if $\omega^{\rho}_{\;\nu}\partial_\mu \mathcal{J}^{\mu\nu}_{\;\;\rho}=0$, then $\partial_\mu\mathcal{J}^{\mu\nu}_{\;\;\rho}=0$. Summarizing, we have the conserved current
+\[
+    \partial_\mu\mathcal{J}^{\mu\nu}_{\;\;\rho} = 0 \quad\text{with}\quad \mathcal{J}^{\mu\nu}_{\;\;\rho} = x^\nu T^{\mu}_{\;\rho} - x^\rho T^{\mu}_{\;\nu}
+\]
+(where I divided out the -1/2 factor). \\
+
+Let's look at the conserved charges like we did last time. I'm going to write: $(\mathcal{J}^\mu)^{\nu\rho}=\eta^{\sigma\rho}\mathcal{J}^{\mu\nu}_{\;\;\sigma}$ because it's easier to see what's going on. Firstly, $(\mathcal{J}^\mu)^{ij}$ represents the conserved charges associated with the rotation generators of our Lorentz transformations. So, we can associate its associated conserved charge with the angular momentum:
+\begin{align*}
+    J^{ij} &= \int d^3x\;(\mathcal{J}^0)^{ij}=\int d^3x\; (x^i T^{0j}-x^j T^{0i})\\
+    \frac{dJ^{ij}}{dt} &= \int d^2x\; n_k (\mathcal{J}^k)^{ij},
+\end{align*}
+where $J^{ij}$ is the angular momentum of rotating about the $ij$ plane. If you're wondering why there are two indices rather than one (to make contact with the angular momentum vector from classical mechanics), it's because there's no way to get a single vector from this. In classical mechanics, we again get a conserved charge with two indices representing the different planes, but, in 3D, we can associate each $J^{ij}$ with a vector through the Hodge dual: $L^k = \frac{1}{2}\epsilon^{kij}J^{ij}$, but this is frame-dependent. It turns out that this is impossible in 4D spacetime, so we'll have to make due with our two indices (this is more fundamental anyway, even if the vector form is more useful in classical mechanics). Lastly, $(\mathcal{J}^\mu)^{0i}=-(\mathcal{J}^\mu)^{i0}$ which are the conserved currents associated with our 3 Lorentz boosts. There isn't really a classical analogue to the charges associated with these, so I'll just write $Q$:
+\begin{align*}
+    Q^i &= \int d^3x\;(\mathcal{J}^0)^{0i} = \int d^3x\;(x^0 T^{0i} - x^i T^{00})\\
+    \frac{dQ^i}{dt} &= \int d^2x\; n_j (\mathcal{J}^j)^{0i}.
+\end{align*}
+Choosing our volume to be all of space and assuming that the Lagrangian and $T$ falls off fast enough gives us
+\begin{align*}
+    \frac{dQ^i}{dt} = 0 &= \int d^3x\; \frac{\partial}{\partial t}\left(t T^{0i} - x^i T^{00}\right)\\
+    & = \int d^3x\; T^{0i} + \int d^3x\;t\frac{\partial T^{0i}}{\partial t} - \int d^3x\;x^i\frac{\partial T^{00}}{\partial t}\\
+    & = P^i + t\frac{dP^i}{dt}- \int d^3x\; x^i\frac{T^{00}}{\partial t}.
+\end{align*}
+But, under the same assumptions we made in the line above the math, $dP^i/dt=0$, so
+\begin{align*}
+    0&=P^i - \frac{d}{dt}\int d^3x\; x^i T^{00}\\
+    &\rightarrow P^i = \text{constant} = \frac{d}{dt}\int d^3x\;x^iT^{00}.
+\end{align*}
+As we discussed earlier, $T^{00}$ is the energy density, so the above statement says: the change in the spatial center of energy is a constant and is equal to the momentum (it applies to each direction $i$, so we can wrap it as a vector). In other words, the center of energy moves with a constant velocity. This is really pretty. It's like Newton's first law, but it falls away just as a conservation law. This is something that I'll mention at the end of this chapter, but this is a hint at the power of this framework. Many things that had to be assumed or added in ad-hoc to other theories falls away in QFT naturally without any additional assumptions. \\
+
+\noindent To be precise, the type of field didn't matter in the derivation of the energy and momentum tensor. All fields transform the same under spacetime translations, whether it's scalar, vector, spinor, etc (each component of each field transforms the same way; there's no internal field structure that's affected by spacetime translation). This is not the case for the Lorentz currents. I assumed that the field we're working with is a scalar, and this matters. If it wasn't a scalar, then the Lorentz transformations would affect the internal structure of the fields, and we'd find a different set of conserved currents. Other types of fields, like spinors and vectors, have their own "spin" and this internal structure is mixed under Lorentz transformations. A scalar field "doesn't" transform under the Lorentz group It's a field that we define over spacetime, so of course the input that we decide to give the field, the spacetime coordinates, transform, but the field as its own mathematical object doesn't transform. This is not the case for vector fields, where not only do the coordinates transform, but the components of the field do too.
+
 \subsubsection{Internal Symmetries}
+So far, we've only talked about spacetime symmetries: symmetries that involve some kind of transformation on the spacetime points themselves. But, an equally important type of symmetry in a theory is an internal symmetry: a symmetry in the internal structure of the fields. This is the type of symmetry that, in the Standard Model, leads to conserved electromagnetic charge, conserved color charge in quantum chromodynamics, etc. Technically, Lorentz symmetry in fields that aren't scalar involve a spacetime symmetry and an internal symmetry, but let's look at internal symmetries that are separate from spacetime symmetries entirely. As an example, consider the Lagrangian with $N$ scalar fields $\phi_a$:
+\[
+    \Lag = \frac{1}{2}\sum^{N}_{a=1}\partial_\mu\phi_a\partial^\mu\phi_a - \frac{1}{2}\sum_{a=1}^Nm^2\phi_a^2 - g\left(\sum_{a=1}^N\phi_a^2\right)^2.
+\]
+The first term is just the kinetic term for all of the fields, and the second term is the mass term for all of the fields. Thus, the first and second terms together just form a free field theory for all of our fields $\phi_a$ (the fact that, to discuss multiple free fields in the Lagrangian formalism, one needs only to add a bunch of free fields together and the math will handle them all is a testament to this formalisms power). The last term is a coupling constant that couples each field to itself. This is an interaction term, and breaks off from free-field theory. But, notice that the interaction term only couples each field to itself. There are no cross terms. This ensures that the Lagrangian is invariant under the $O(N)$ group. Imagine wrapping all $\phi_a$ into a vector:
+\[
+    \Phi = \begin{pmatrix}
+        \phi_1 \\
+        \phi_2 \\
+        \vdots\\
+        \phi_N
+    \end{pmatrix}.
+\]
+Then, rotations of this vector (not in physical space, but in the space spanned by the fields $\phi_a$) leave the Lagrangian invariant. $O(N)$ acts on this space like
+\begin{align*}
+    \Phi&\rightarrow R\Phi = R^{ij}\Phi_j \quad\text{or, in matrix form}\\
+    \Phi&\rightarrow \begin{pmatrix}
+        R^{11} & R^{12} & \cdots & R^{1N}\\
+        R^{21} & R^{22} & \cdots & R^{2N}\\
+        \vdots & \vdots & \ddots & \vdots\\
+        R^{N1} & R^{N2} & \cdots & R^{NN}
+    \end{pmatrix}\begin{pmatrix}
+        \phi_1\\
+        \phi_2\\
+        \vdots\\
+        \phi_N
+    \end{pmatrix}
+\end{align*}
+It isn't too hard to show that operations like $R^{ij}\phi_j$ (where $R$ is orthogonal to represent that it's a rotation) leave the Lagrangian invariant (you'll get a bunch of $R$ terms that combine to identity because of the orthogonality). The important thing is that this has nothing to do with spacetime transformations or symmetries. We're not altering in any way the spacetime points our fields are defined over. The symmetry here is a symmetry of the internal structure of our fields. At each spacetime point, our set of fields have specific values, and we can wrap those specific values as a vector. That vector will point in a specific direction in field space. This symmetry is telling us that, if we rotate this vector (keeping its length the same, but changing its direction in field space) in the same away at every spacetime point, the Lagrangian stays the same. \\
+
+\noindent Consider one complex field $\psi$ and consider the Lagrangian: 
+\[
+    \Lag =\partial_\mu\psi^*\partial^\mu\psi - V(|\psi|^2),
+\]
+where we treat $\psi$ and its complex conjugate $\psi^*$ as independent fields. This Lagrangian is invariant under total phase transformations of the field; $\psi\rightarrow e^{i\alpha}\psi$: at every point in spacetime, our field has associated with it a complex number. We keep the magnitude of this number the same, but we change the direction of the complex number (in complex space) by the same amount at every point. The conserved current associated with this transformation is easily derived to be ($\chi = i\alpha\psi, \chi_*=-i\alpha\psi^*$, and $\delta\Lag=0$):
+\[
+    j^\mu = i(\partial^\mu\psi^*)\psi - i\psi^*(\partial^\mu\psi).
+\]
+Currents of these types are often interpreted as conservation of charge or particle number.
+
 \subsection{Hamiltonian Formalism}
-\subsubsection{Legendre Transform}
-\subsubsection{}
+This paper motivates QFT through the route of canonical quantization which is best understood through the Hamiltonian formalism. A more in-depth discussion on the mathematics of the Hamiltonian formalism and a "philosophical" discussion on how the Hamiltonian formalism ties to quantum mechanics is given in the supplemental notes paper "The Walk from Hamiltonian Mechanics to Quantum Mechanics." That paper motivates a few connections between Hamiltonian formalism and quantum mechanics in particle mechanics and discusses briefly how this connection can be extended to fields. To me, it's pretty important, but most of the discussion isn't talking about field theory and so I separated it into a separate paper. Here, I'll just discuss how Hamiltonian formalism applies to fields. The mathematics of the Hamiltonian formalism for fields follows analogously from particle mechanics. In classical mechanics, our Lagrangian depended on $q$ and $\dot{d}$. We then defined conjugate momentum to $q$ by
+\[
+    p=\partial L/\partial q,
+\]
+and defined the Hamiltonian as the Legendre transform of the Lagrangian:
+\[
+    H(p, q) = p\dot{q}(q, p) - L(q, \dot{q}(q, p)),
+\]
+where we use the definition of $p$ to write all instances of $\dot{q}$ as a function of $p$ and $q$. This casts our theory from one over configuration space to one over phase space, and it comes with a ton of geometrical information (see supplemental paper). Here, we have a theory in which our variables of interest are no longer $q$ and $\dot{q}$, but instead the fields $\phi_a$ and $\partial_\mu\phi_a$. So, let's define the momentum fields conjugate to $\phi_a$ with
+\[
+    \pi^a = \frac{\partial\Lag}{\partial\dot{\phi_a}}.
+\]
+In particle mechanics, we had only one choice for conjugate momentum since we had only one possible option for the conjugate pair: $q$ and $\dot{q}$. Here, we have four options: one for each derivative direction. We decide to choose the derivative with respect to time. With the conjugate momentum defined in that way, the Legendre transform of our Lagrangian density is
+\[
+    \mathcal{H} = \pi^a\dot{\phi_a}(\pi^a, \phi_a,\partial_i\phi_a) - \Lag(\phi_a, \dot{\phi_a}(\pi^a, \phi_a, \partial_i\phi_a, \partial_i\phi_a))
+\]
+where we use the definition of $\pi^a$ to write all instances of $\dot{\phi_a}$ as a function of $\partial_i\phi_a$, $\phi_a,$ and $\pi^a$. The Hamiltonian is then defined as
+\[
+    H = \int d^3x\; \mathcal{H}.
+\]
+Note that
+\begin{align*}
+    E = \int d^3x\; T^0_{\;0} &= \int d^3x\; \left(\frac{\partial\Lag}{\partial(\partial_t\phi_a)}\partial_t\phi_a - \Lag\right) \\
+    &=\int d^3x\;\left(\frac{\partial{\Lag}}{\partial\dot{\phi_a}}\dot{\phi_a} - \Lag\right)\\
+    &= \int d^3x\;\left(\pi^a\dot{\phi_a} - \Lag\right)\\
+    &= \int d^3x\; \mathcal{H} = H.
+\end{align*}
+So, the total Hamiltonian is equal to the total energy as found by Noether's theorem. \\
+
+\noindent Now, it should be immediately clear that the Hamiltonian formalism separates the time component from the spatial components. As such, the Hamiltonian formalism is not manifestly Lorentz covariant like the Lagrangian formalism, which treats time and space on equal footing, is. That isn't to say that the Hamiltonian formalism isn't Lorentz covariant; it must be. It's just that it often won't look like it, similar to how, unless you write Maxwell's equations in a Lorentz covariant way, it's not immediately obvious that they are Lorentz covariant, even they absolutely are. Until we massage it a little, the Hamiltonian formalism often won't make it clear that it's Lorentz covariant, but it absolutely is (if the theory's to be physical). \\
+
+\noindent As a final summary: all of this talk has been mathematically precise (albeit, to the level of a physicist) without much connection to physics. In the next few sections, we'll apply this framework to physics through canonical quantization, a method of directly quantizing a theory. Rather than just accepting the math, think exactly about what each equation is saying physically. Because of how heuristic canonical quantization is, there are times when you may ask: "why does this work, though? Why, philosophically and fundamentally, is this correct?" Unlike classical mechanics, which feels relatively logically motivated and philosophically easy to accept, QFT, especially as motivated with canonical quantization, does not. It'll feel like we're making massive leaps that "just happen" to work. This is ok. A more "first-principles" approach to QFT comes from the route from the path integral formulation of QM. But, canonical quantization is often chosen to introduce the topic because it's more pedagogically accessible, it often has a broader applied scope, and it's a good method to teach how one "does" QFT practically. That being said, you shouldn't ignore trying to understand what's going on physically because, "well, it's heuristic. I'll just accept what is written." There are levels to understanding QFT, and you can take canonical quantization very deep until you hit a real wall. I will try to write exactly how far down you can take each segment philosophically until it's "just something you have to accept." But, note that every "just accept" wall is usually more fruitfully explained through the path integral approach. Obviously, it's not a perfect theory. There are issues with the Standard Model, and there are many seemingly ad-hoc things one needs to do to the theory to ensure that it works (you'll almost immediately see an example of this in the next section with UV and IR divergences). This is a reflection that physics isn't "done." This should be exciting rather than disappointing. QFT isn't a theory of everything; it's just a practical theory that does phenomenally well predicting new phenomena and agreeing with experimental results. QFT is, like Newton's laws, a framework rather than a statement of physics. It's a system in which you can create new theories, but there are times where you'll just have to add something to the Lagrangian to get things to work. It's a testament to QFT that you can do this so easily, but those random additions hint that there are deeper things at play that QFT can't explain on its own. In a way, it's almost just like you're hiding the physics behind a deeper layer of math. QFT isn't the physics; it's a backdrop and a framework for the physics to lie in. But, this choice of framework can explain a whole lot more than just Newton's laws or quantum mechanics can, and principles that you'd have to arbitrarily add in in higher-level theories arise naturally in QFT. Maybe there's another framework out there that can explain the ad-hoc additions in QFT in a more natural way. All QFT is is a framework that decides to treat fields as fundamental and particles as excitations of the fields (this is the way QFT is structured rather than something that falls from it).
  
